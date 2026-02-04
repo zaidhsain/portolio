@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaid Hsain | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- ⚠️ CSS IDENTIQUE À TON CODE -->
+     family=Playfair+Display:wght@400;700;900&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2C3E50;
+            --accent: #E67E22;
+            --bg-light: #ECF0F1;
+            --text-dark: #2C3E50;
+            --text-light: #7F8C8D;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Header avec animation */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 5px solid var(--accent);
+    margin: 0 auto 30px;
+    overflow: hidden; /* مهم باش الصورة ما تخرجش */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    background: var(--bg-light);
+}
+
+.profile-img img {
+    width: auto;
+    height: 100%; /* height ديال div */
+    display: block;
+    object-fit: cover; /* كيقطع الزائد ويحافظ على aspect ratio */
+}
+.profile-img img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            color: white;
+            margin-bottom: 10px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: var(--accent);
+            font-weight: 300;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Container principal */
+        .container {
+            max-width: 1000px;
+            margin: -50px auto 0;
+            padding: 0 20px 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Section À propos */
+        .about-section {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: var(--primary);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+        }
+
+        .about-section p {
+            line-height: 1.8;
+            color: var(--text-light);
+            font-size: 1.1em;
+        }
+
+        /* Compétences */
+        .skills-section {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .skill-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        /* Portfolio/Projets */
+        .projects-section {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease-out 1s both;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .project-card {
+            background: var(--bg-light);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            color: white;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.4em;
+        }
+
+        .project-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Contact */
+        .contact-section {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            animation: fadeInUp 0.8s ease-out 1.2s both;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .social-link.instagram {
+            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+        }
+
+        .social-link.email {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .about-section, .skills-section, .projects-section, .contact-section {
+                padding: 30px 25px;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <div class="profile-img">
+          <img src="profile.jpg" alt="Zaid Hsain">
+
+         </div>
+
+        <p class="subtitle">
+            AI & Data Science Student | Junior Software Engineer
+        </p>
+    </header>
+
+    <div class="container">
+        <!-- About -->
+        <!-- About Me -->
+<section class="about-section" style="background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); padding:50px; border-radius:20px; box-shadow:0 10px 40px rgba(0,0,0,0.1); margin-bottom:40px;">
+    <h2 style="color:#2C3E50; margin-bottom:20px;">About Me</h2>
+    <p style="line-height:1.8; color:#34495e; font-size:1.1em;">
+        Hi! I’m <strong>Zaid Hsain</strong>, an <strong>AI & Data Science student at ENSAM Rabat</strong> passionate about building <strong>intelligent, data-driven applications</strong>.  
+        I love combining Python, Java, C/C++, SQL, and modern web development tools to solve real-world problems.  
+        I have hands-on experience with <strong>Large Language Models (LLMs)</strong> and <strong>RAG (Retrieval-Augmented Generation)</strong> systems.  
+
+        When I’m not coding, I explore new AI technologies, build projects, and share knowledge with the community.  
+        Curious, motivated, and ready to take on challenges, I’m always looking for opportunities to grow through projects and collaborations.
+    </p>
+</section>
+
+
+        <!-- Skills -->
+        <section class="skills-section">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🤖</div>
+                    <h3>AI & LLMs</h3>
+                    <p>LLMs, RAG Pipelines, Machine Learning,Deep Learning</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">💻</div>
+                    <h3>Programming</h3>
+                    <p>Python, Java, C, C++, SQL</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🗄️</div>
+                    <h3>Databases</h3>
+                    <p>MySQL, MongoDB, Redis, Cassandra, Neo4j</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🌐</div>
+                    <h3>Web & Apps</h3>
+                    <p>Streamlit, Java Swing,Java Script,React Js,Laravel,Node js,Angular</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+<section class="projects-section">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+
+        <div class="project-card">
+            <div class="project-img">📍</div>
+            <div class="project-content">
+                <h3>Local Business Finder</h3>
+                <p>
+                    A web application that helps users discover nearby businesses using search filters
+                    and interactive dashboards.
+                    <br><strong>Tech:</strong> Python, Streamlit, APIs
+                    <br><strong>GitHub:</strong> github.com/zaidhsain/local-business-finder
+                </p>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-img">🚗</div>
+            <div class="project-content">
+                <h3>Car Price Prediction</h3>
+                <p>
+                    Machine learning project for predicting car prices based on multiple features.
+                    <br><strong>Tech:</strong> Python, Pandas, Scikit-learn
+                    <br><strong>GitHub:</strong> github.com/zaidhsain/Car-Price-Prediction
+                </p>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-img">📚</div>
+            <div class="project-content">
+                <h3>Books Recommender System</h3>
+                <p>
+                    A recommendation system that suggests books based on user preferences and data analysis.
+                    <br><strong>Tech:</strong> Python, Machine Learning
+                    <br><strong>GitHub:</strong> github.com/zaidhsain/Books-Recommender-System
+                </p>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-img">🩺</div>
+            <div class="project-content">
+                <h3>Medical Chatbot with LLMs</h3>
+                <p>
+                    An intelligent medical chatbot using LLMs with LangChain, vector databases,
+                    and cloud deployment.
+                    <br><strong>Tech:</strong> LLMs, LangChain, Pinecone, Flask, AWS
+                    <br><strong>GitHub:</strong> github.com/zaidhsain/Medical-Chatbot-with-LLMs-LangChain-Pinecone-Flask-AWS-
+                </p>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-img">💼</div>
+            <div class="project-content">
+                <h3>AI Job Recommender System</h3>
+                <p>
+                    A generative AI-powered job recommendation system using modern AI pipelines.
+                    <br><strong>Tech:</strong> Generative AI, MCP, Python
+                    <br><strong>GitHub:</strong> github.com/zaidhsain/Build-Generative-AI-Powered-Job-Recommender-System-with-MCP
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- Certificates -->
+<!-- Certificates -->
+<!-- Certificates -->
+<section class="skills-section" style="background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); padding:50px; border-radius:20px; box-shadow:0 10px 40px rgba(0,0,0,0.1); margin-bottom:40px;">
+    <h2 style="color:#2C3E50; margin-bottom:30px;">Certificates</h2>
+    <div class="skills-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:20px;">
+
+        <div class="skill-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding:25px; border-radius:15px; text-align:center; color:white; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor:pointer;">
+            <div class="skill-icon" style="font-size:2.5em; margin-bottom:15px;">📜</div>
+            <h3 style="margin-bottom:10px;">Associate Data Scientist in Python</h3>
+            <p style="margin-bottom:15px;">DataCamp</p>
+            <a href="LINK_TO_CERTIFICATE" target="_blank" style="color:#FFD700; font-weight:600; text-decoration:none; display:inline-block; padding:8px 15px; border-radius:50px; background: rgba(255,255,255,0.2); transition:0.3s;">View Certificate</a>
+        </div>
+
+        <div class="skill-card" style="background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%); padding:25px; border-radius:15px; text-align:center; color:white; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor:pointer;">
+            <div class="skill-icon" style="font-size:2.5em; margin-bottom:15px;">🤖</div>
+            <h3 style="margin-bottom:10px;">Associate AI Engineer for Developers</h3>
+            <p style="margin-bottom:15px;">DataCamp</p>
+            <a href="LINK_TO_CERTIFICATE" target="_blank" style="color:#FFD700; font-weight:600; text-decoration:none; display:inline-block; padding:8px 15px; border-radius:50px; background: rgba(255,255,255,0.2); transition:0.3s;">View Certificate</a>
+        </div>
+
+    </div>
+</section>
+
+
+
+        <!-- Contact -->
+        <section class="contact-section">
+            <h2>Contact</h2>
+            <p style="margin: 20px 0; color: var(--text-light);">
+                Feel free to reach out for collaborations, projects, or opportunities.
+            </p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/zaidhs.ai?igsh=eXB5amJpOXM3d2pn&utm_source=qr" class="social-link instagram" target="_blank">
+                    📸 Instagram
+                </a>
+                <a href="zaidhsain2@gmail.com" class="social-link email">
+                    📧 Email
+                </a>
+                <a href="https://www.linkedin.com/in/zaid-hsain-579173309?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="social-link" target="_blank">
+                    💼 LinkedIn
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Zaid Hsain — Built with passion for AI & software engineering.</p>
+    </footer>
+</body>
+</html>
